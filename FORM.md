@@ -1,25 +1,18 @@
 # Oura "New Application" formu — doldurma kılavuzu
 
-## Önce: üç URL'i yayına al
+## Sayfalar yayında
 
-Formun zorunlu tuttuğu Website / Privacy Policy / Terms of Service sayfaları
-`Web/` klasöründe hazır. GitHub Pages'te yayınlamak dört komut:
+Üç zorunlu URL yayında ve doğrulandı:
 
-```bash
-cd "/Users/mmd/Desktop/apps/Aura+/Web"
-git init -b main && git add . && git commit -m "Aura+ web pages"
-gh repo create auraplus-web --public --source=. --push
-gh api -X POST repos/:owner/auraplus-web/pages -f "source[branch]=main" -f "source[path]=/"
-```
+| Sayfa | Adres | Durum |
+|---|---|---|
+| Website | `https://mahsundemir.github.io/auraplus-web/` | 200 ✓ |
+| Privacy Policy | `https://mahsundemir.github.io/auraplus-web/privacy.html` | 200 ✓ |
+| Terms of Service | `https://mahsundemir.github.io/auraplus-web/terms.html` | 200 ✓ |
+| OAuth köprüsü | `https://mahsundemir.github.io/auraplus-web/oauth/callback.html` | 200 ✓ |
 
-Bir iki dakika sonra sayfalar şurada yayında olur:
-
-```
-https://<github-kullanıcı-adın>.github.io/auraplus-web/
-```
-
-Aşağıda bu adres `BASE` olarak geçiyor. Sayfaların açıldığını doğrulamadan
-formu göndermemek daha güvenli.
+Kaynak: `github.com/mahsundemir/auraplus-web` (public).
+Sayfaları değiştirmek için bu klasörde düzenleyip `git push` yeterli.
 
 ---
 
@@ -30,9 +23,9 @@ formu göndermemek daha güvenli.
 | **Display Name** | `Aura+` |
 | **Description** | `Native macOS and iOS companion for Oura Ring data. Presents sleep architecture, personal baselines, lagged correlations and long-term trends, with desktop and Home Screen widgets. Local-first: no backend, data stays on the user's device.` |
 | **Contact Email** | `febilgiteknolojileri@gmail.com` |
-| **Website** | `BASE/` |
-| **Privacy Policy** | `BASE/privacy.html` |
-| **Terms of Service** | `BASE/terms.html` |
+| **Website** | `https://mahsundemir.github.io/auraplus-web/` |
+| **Privacy Policy** | `https://mahsundemir.github.io/auraplus-web/privacy.html` |
+| **Terms of Service** | `https://mahsundemir.github.io/auraplus-web/terms.html` |
 
 ### Redirect URIs — ikisini birden ekle
 
@@ -40,7 +33,7 @@ formu göndermemek daha güvenli.
 
 ```
 auraplus://oauth/callback
-BASE/oauth/callback.html
+https://mahsundemir.github.io/auraplus-web/oauth/callback.html
 ```
 
 **Neden ikisi birden:** Redirect URI'lar birebir eşleşen bir beyaz liste. Oura'nın
