@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Returning to Aura+</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <h1>Returning to Aura+</h1>
+  <p class="sub" id="status">Handing the authorisation back to the app…</p>
+  <p><a id="manual" href="#">Open Aura+ manually</a></p>
+</main>
+<script>
+  // Oura yetkilendirme sonucunu custom scheme'e aktarır. Sorgu dizesi
+  // (authorization code akışı) ve fragment (implicit akış) birlikte taşınır.
+  var target = "auraplus://oauth/callback"
+    + window.location.search
+    + window.location.hash;
+  document.getElementById("manual").href = target;
+  window.location.replace(target);
+  setTimeout(function () {
+    document.getElementById("status").textContent =
+      "If Aura+ did not open, use the link below.";
+  }, 2000);
+</script>
+</body>
+</html>
